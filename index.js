@@ -19,7 +19,12 @@ new Vue({
             { name: 'Abby', title: 'Accountant' },
             { name: 'Andy', title: 'Marketing Manager' },
             { name: 'Brandon', title: 'Vue.js Expert' },
-        ]
+        ],
+        person: {
+            firstName: 'Emeka',
+            lastName: 'Mbachu',
+            age: 30
+        }
     },
     methods:{
         isMovieOld: function(releaseYear){

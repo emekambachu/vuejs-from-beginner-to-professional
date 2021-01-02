@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--Vue CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<!--    <script type="text/javascript" src="vue_development.js"></script>-->
+</head>
+<body>
+    <div id="app">
+
+        <!--Add user and shuffle-->
+        <ul>
+            <li v-for="p in persons" v-bind:key="p.id">
+                {{ p.name }} (ID: {{ p.id }})</li>
+        </ul>
+
+        <button v-on:click="addNewPerson()">Add Person</button>
+        <button v-on:click="shuffle()">Shuffle</button>
+        <br><br>
+
+        <ul>
+            <li v-for="n in numbers">{{ n }}</li>
+        </ul>
+        <button v-on:click="changeNumber()">Change Number</button>
+        <br><br>
+
+        <input type="password" placeholder="Enter Password" v-model="password">
+
+        <p v-if="password.length > 8">Awesome! your password is longer than 8 characters</p>
+        <p v-else-if="password.length < 8">Please enter a longer password</p>
+        <p v-else>Please enter a password</p>
+
+        <ol>
+            <li v-for="(category, index) in categories">
+                ({{ index + 1}}) {{ category.name }}
+                <ul>
+                    <li v-for="sub in category.sub">
+                        {{ sub }}
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+    </div>
+</body>
+
+<script type="text/javascript" src="index1.js"></script>
+
+</html>

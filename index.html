@@ -88,6 +88,19 @@
             </tbody>
         </table>
 
+        <!--Loop object-->
+        <h3>Loop Objects</h3>
+        <ul>
+            <li v-for="(value, propertyName, index) in person">
+                {{ index + 1 }} => <strong>{{ propertyName }}:</strong> {{ value }}
+            </li>
+        </ul>
+
+        <h3>Loop Number Range</h3>
+        <ul>
+            <li v-for="n in 10">{{ n }}</li>
+        </ul>
+
     </div>
 </body>
 
