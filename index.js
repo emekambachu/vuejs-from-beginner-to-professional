@@ -7,7 +7,19 @@ new Vue({
         releaseYear: '1999',
         firstName: '',
         lastName: 'Mbachu',
-        outputName: ''
+        outputName: '',
+        html: '<h2>Whats up</h2>',
+        itemsInStock: 50,
+        ishidden: true,
+        movieTitles: [
+            'The Matrix',
+            'The Matrix: Reloaded',
+            'The Matrix: Revolutions'],
+        employees: [
+            { name: 'Abby', title: 'Accountant' },
+            { name: 'Andy', title: 'Marketing Manager' },
+            { name: 'Brandon', title: 'Vue.js Expert' },
+        ]
     },
     methods:{
         isMovieOld: function(releaseYear){

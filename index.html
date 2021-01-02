@@ -36,13 +36,57 @@
         <!--prevent form submission-->
         <form action="" method="get" v-on:submit.prevent>
             <input type="submit" value="Submit">
-        </form>
+        </form><br><br>
 
-        <div>
-            <!--connect input field to data property-->
-            <input type="text" v-model="firstName">
-            <p>You entered: {{ firstName }}</p>
-        </div>
+        <!--connect input field to data property-->
+        <input type="text" v-model="firstName">
+        <p>You entered: {{ firstName }}</p><br><br>
+
+        <div v-html="html"></div><br><br>
+
+        <!--v if and else-->
+        <p v-if="itemsInStock > 10">{{ itemsInStock }} in stock</p>
+        <p v-else-if="itemsInStock > 0">Hurry up, there are just a few items left</p>
+        <p v-else>Too bad, we're all out</p>
+
+        <template v-if="itemsInStock > 50">
+            <p>Special Offer</p>
+            <p>Looks like we have tone of products in stock...save 20% if you order now</p>
+        </template>
+
+        <!--Hide/show-->
+        <p v-show="ishidden">Hide Box</p>
+        <p v-show="!ishidden">Show Box</p>
+
+        <button v-on:click="ishidden = !ishidden">Toggle Hide/Show</button>
+
+        <!--foreach loop-->
+        <h3>Movies</h3>
+        <ul>
+            <li v-for="title in movieTitles">
+                {{ title}}
+            </li>
+        </ul><br><br>
+
+        <h3>Employees</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Name</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <tr v-for="(employee, index) in employees">
+                <td>{{ index + 1 }}</td>
+                <td>{{ employee.name }}</td>
+                <td> {{ employee.title }}</td>
+            </tr>
+
+            </tbody>
+        </table>
 
     </div>
 </body>
