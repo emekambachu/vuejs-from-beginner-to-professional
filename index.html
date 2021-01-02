@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--Vue CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<!--    <script type="text/javascript" src="vue_development.js"></script>-->
+</head>
+<body>
+    <div id="app">
+        {{ message }}<br>
+        <a v-bind:href="blogUrl">Go to Link</a>
+        <p>Title: {{ movieTitle }}</p>
+        <p>Released: {{ releaseYear }}</p>
+
+        <p>The movie is {{ isMovieOld(releaseYear) ? 'Old' : 'New' }}</p>
+
+        <div v-bind:title="movieTitle">Hover your movie here!</div>
+
+        <button v-on:click="clickMe('Whats up')">Click me</button><br><br>
+
+        <input type="text" v-on:keyup.enter.space="pressedEnterOrSpace"><br><br>
+
+        <input type="text" v-on:keyup="outputNameKeyup"><br>
+        Output: {{ outputName }}
+        <br><br>
+
+        <!--press Control ad then Enter-->
+        <input type="text" v-on:keyup.ctrl.enter="outputName = $event.target.value"><br>
+        Output: {{ outputName }}
+        <br><br>
+
+        <!--prevent form submission-->
+        <form action="" method="get" v-on:submit.prevent>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div>
+            <!--connect input field to data property-->
+            <input type="text" v-model="firstName">
+            <p>You entered: {{ firstName }}</p>
+        </div>
+
+    </div>
+</body>
+
+<script type="text/javascript" src="index.js"></script>
+
+</html>
