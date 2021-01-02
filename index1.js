@@ -12,7 +12,10 @@ new Vue({
             { name: 'Javascript', sub: ['Vue.js', 'React', 'Angular2'] },
             { name: 'Databases', sub: ['MySQL', 'PostgreSQL', 'MariaDB'] },
             { name: 'Operating Systems', sub: ['macOS', 'Linux', 'Windows'] },
-        ]
+        ],
+        counter: 1,
+        firstName: "Emy",
+        lastName: "Mba"
     },
     methods:{
         addNewPerson: function () {
@@ -44,6 +47,11 @@ new Vue({
         changeNumber: function () {
             Vue.set(this.numbers, 1, 10);
             alert(this.numbers[1]);
+        },
+
+        getFullName: function(){
+            alert("Assembling full name.......");
+            return this.firstName + ' ' + this.lastName;
         }
     }
 });
