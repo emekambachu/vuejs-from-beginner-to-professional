@@ -18,6 +18,15 @@ new Vue({
         lastName: "Mba"
     },
     methods:{
+      changeName: function(){
+          this.firstName = 'Mark';
+          this.lastName = 'Greyson';
+      },
+        changeNameSetter: function(){
+            this.fullName = 'Mark Greyson';
+        },
+    },
+    computed:{
         addNewPerson: function () {
             let highestId = Math.max.apply(Math, this.persons.map(function (p) {
                 return p.id;
@@ -49,9 +58,17 @@ new Vue({
             alert(this.numbers[1]);
         },
 
-        getFullName: function(){
-            alert("Assembling full name.......");
-            return this.firstName + ' ' + this.lastName;
+        fullName: {
+            get: function(){
+                alert("Assembling full name.......");
+                return this.firstName + ' ' + this.lastName;
+            },
+            set: function(newValue){
+                alert("Setting new name: "+newValue);
+                let parts = newValue.split(' ');
+                this.firstName = parts[0];
+                this.lastName = parts[parts.length - 1];
+            },
         }
     }
 });

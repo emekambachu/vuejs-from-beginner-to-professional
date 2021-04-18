@@ -47,7 +47,11 @@
         <br><br>
 
         <p>{{ counter }}</p>
-        <p>{{ getFullName() }}</p>
+        <p>{{ fullName }}</p>
+
+        <button v-on:click="counter++">Increase Counter</button>
+        <button v-on:click="changeName">Change Name</button>
+        <button v-on:click="changeNameSetter">Change Name (setter)</button>
 
     </div>
 </body>
