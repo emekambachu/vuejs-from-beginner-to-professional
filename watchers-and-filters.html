@@ -19,10 +19,21 @@
                 <li v-for="result in results">{{ result }}</li>
             </ol>
         </div>
+
+        <!--Movies-->
+        <ol>
+            <li v-for="movie in formattedMovies">{{ movie }}</li>
+        </ol>
+
+        <button v-on:click="addMovie">Add Movie</button>
+
+        <h1>{{ message | uppercase(true) }}</h1>
+        <p v-bind:title="message | uwfirst">{{ message }}</p>
+        <p>{{ message | uwfirst | removeSpaces }}</p>
     </div>
 
 </body>
 
-<script type="text/javascript" src="watchers.js"></script>
+<script type="text/javascript" src="watchers-and-filters.js"></script>
 
 </html>
