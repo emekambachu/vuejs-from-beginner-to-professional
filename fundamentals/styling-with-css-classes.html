@@ -15,6 +15,17 @@
             margin: 10px;
         }
 
+        .shape2{
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            margin-top: 200px;
+        }
+
+        .highlighted{
+            background-color: #DECA9B;
+        }
+
         .circle{
             background-color: red;
             border-radius: 50%;
@@ -83,10 +94,38 @@
     </div>
     <br><br>
 
+
     <div class="shape"
          v-for="shape in shapes"
-         v-bind:class="[shape.shape, shape.direction ? shape.direction : '']">
+         v-bind:class="[shape.shape, shape.direction ? shape.direction : '', {animate: shape.animate}]">
     </div>
+    <p>Shape</p>
+
+
+    <div class="shape2"
+         v-bind:style="shapeStyles" v-on:click="changeShape">
+    </div>
+    <p>Shape 2</p>
+    <br><br>
+
+    <h1>Employees</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Company</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr v-for="(employee, loopIndex) in employees"
+               v-bind:class="{ highlighted: loopIndex % 2}">
+               <td>{{ employee.name }}</td>
+               <td>{{ employee.title }}</td>
+               <td>{{ companyName }}</td>
+           </tr>
+        </tbody>
+    </table>
 </div>
 
 
