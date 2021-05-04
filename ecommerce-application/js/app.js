@@ -1,6 +1,10 @@
 new Vue({
     el: '#app',
     data: {
+        isShowingCart: false,
+        cart: {
+            items: []
+        },
         products: [
             {
                 id: 1,
@@ -45,5 +49,41 @@ new Vue({
                 inStock: 81
             }
         ]
+    },
+
+    computed: {
+        cartTotal: function(){
+            let total = 0;
+            if(this.cart.items.length > 0){
+                this.cart.items.forEach(function (item) {
+                    total += item.quantity * item.product.price
+                });
+            }
+            return total;
+        },
+        taxAmount: function(){
+            return ((this.cartTotal * 10) / 100);
+        }
+    },
+
+    methods: {
+        addProductToCart: function (product) {
+            this.cart.items.push({
+                product: product,
+                quantity: 1
+            });
+            product.inStock--;
+        }
+    },
+
+    filters: {
+        currency: function (value) {
+            let formatter = Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0
+            });
+            return formatter.format(value);
+        }
     }
 });
