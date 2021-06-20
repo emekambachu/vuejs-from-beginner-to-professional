@@ -76,8 +76,11 @@
                     <td>{{ item.product.name }}</td>
                     <td>
                         {{ item.quantity }} &nbsp;
-                        <button class="btn btn-success" @click="increaseQuantity(item)" :disabled="item.product.inStock == 0">+</button>
-                        <button class="btn btn-danger" @click="decreaseQuantity(item)">-</button>
+                        <button class="btn btn-success"
+                                @click="increaseQuantity(item)"
+                                :disabled="item.product.inStock === 0">+</button>
+                        <button class="btn btn-danger"
+                                @click="decreaseQuantity(item)">-</button>
                     </td>
                     <td>{{ item.quantity * item.product.price | currency }}</td>
                 </tr>
@@ -108,7 +111,10 @@
 
                 <tr>
                     <td colspan="2"></td>
-                    <td><button class="btn btn-success" @click="checkout">Checkout</button></td>
+                    <td>
+                        <button class="btn btn-success"
+                                @click="checkout">Checkout</button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
